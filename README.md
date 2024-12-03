@@ -2,6 +2,8 @@
 
 ## Setup
 ```bash
+sudo apt install alacritty light sway swayidle swaylock waybar wofi fonts-font-awesome
+
 cd ~/.config/sway/
 ln -s {path to repo}/sway/config . 
 cd ~/.config/wofi/
