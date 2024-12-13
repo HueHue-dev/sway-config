@@ -29,11 +29,11 @@ client.unfocused        $title_outline_unfocused $title_bg_unfocused $text_color
 client.urgent           $color_urgent            $color_urgent       $color_urgent $color_urgent         $color_urgent
 
 # Add gaps in between all application windows:
-gaps inner 8
-gaps outer 3
+gaps inner 4
+gaps outer 1
 
 # Configure the default border:
-default_border pixel 2
+default_border pixel 1
 
 #====================================#
 # Activate the panel                 #
@@ -43,9 +43,16 @@ bar {
     swaybar_command waybar
 }
 
+# Edit multi monitor config
+output DP-6 pos 0 0 res 1920x1080
+output DP-5 pos 1920 0 res 1920x1080
+output eDP-1 pos 3840 0 res 1920x1080
+
 input * {
     xkb_layout "de"
+    xkb_numlock enabled
 }
+
 #====================================#
 # Keyboard Shortcuts (Sway-specific) #
 #====================================#
@@ -59,20 +66,7 @@ set $alt Mod1
 bindsym $mod+Shift+c reload
 
 # Quit your current session and return to the log-in manager/tty:
-#bindsym $mod+Shift+e exec $HOME/.config/sway/exit.sh
 bindsym $mod+Shift+e exec wlogout 
-
-# Screen locking (automatic, with a timeout)
-set $lock swaylock -C ~/.config/swaylock/config
-exec swayidle -w \
-    timeout 600 $lock \
-    timeout 570 'swaymsg "output * dpms off"' \
-    resume 'swaymsg "output * dpms on"' \
-    before-sleep $lock
-
-# Screen locking (manual)
-# bindsym $mod+Escape exec $lock_screen
-
 
 #========================================#
 # Keyboard Shortcuts (Window Management) #
@@ -124,22 +118,36 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
 bindsym $mod+r mode "resize"
 
+set $out-left DP-6
+set $out-center DP-5
+set $out-right eDP-1
 
 #=================================#
 # Keyboard Shortcuts (Workspaces) #
 #=================================#
 # Switch to workspace
-set $ws1 "1 - Console"
-set $ws2 "2 - IDE"
-set $ws3 "3 - Browser"
-set $ws4 "4"
-set $ws5 "5"
+set $ws1 "1 - IDE"
+set $ws2 "2 - IDE" 
+set $ws3 "3 - Terminal"
+set $ws4 "4 - Terminal"
+set $ws5 "5 - Browser"
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
+set $ws8 "8 - Keepass"
+set $ws9 "9 - Thunderbird"
+
+workspace $ws1 output $out-center
+workspace $ws2 output $out-center
+workspace $ws3 output $out-center
+workspace $ws4 output $out-center
+workspace $ws5 output $out-left
+workspace $ws6 output $out-left
+workspace $ws7 output $out-left
+workspace $ws8 output $out-right
+workspace $ws9 output $out-right
 
 # Move between workspaces
 bindsym $mod+1 workspace $ws1
@@ -204,7 +212,6 @@ bindsym $mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
-
 #===============================#
 # Keyboard Shortcuts (Hardware) #
 #===============================#
@@ -217,7 +224,6 @@ bindsym XF86AudioMute exec "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; pkill -R
 bindsym XF86MonBrightnessDown exec light -U 10
 bindsym XF86MonBrightnessUp exec light -A 10
 
-
 #=============================================#
 # Keyboard Shortcuts (launching applications) #
 #=============================================#
@@ -225,14 +231,14 @@ bindsym XF86MonBrightnessUp exec light -A 10
 set $menu wofi --show drun  -i | xargs swaymsg exec --
 
 # Launch your browser:
-bindsym $mod+Shift+b exec firefox
+bindsym $mod+Shift+b exec google-chrome
 
 # Open a file manager:
 bindsym ctrl+$mod+f exec pcmanfm
 
 # Open a terminal emulator:
-set $term alacritty
-bindsym $mod+t exec $term
+set $term alacritty -T "Terminal"
+bindsym $mod+return exec $term
 
 # Kill focused window:
 bindsym $mod+Shift+q kill
@@ -243,8 +249,13 @@ bindsym $mod+space exec $menu
 # Open the application launcher (alternate version):
 bindsym $mod+d exec $menu
 
+# Autostart
+
+exec swaymsg "assign workspace $ws5"
+
 #======#
 # Misc #
 #======#
 include /etc/sway/config-vars.d/*
 include /etc/sway/config.d/*
+

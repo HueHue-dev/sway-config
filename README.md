@@ -3,8 +3,7 @@
 ## Setup
 ### Manually
 ```bash
-sudo apt install alacritty light sway swayidle swaylock waybar wofi fonts-font-awesome
-
+sudo apt install alacritty light sway swaylock waybar wofi fonts-font-awesome pulseaudio pavucontrol
 cd ~/.config/sway/
 ln -s {path to repo}/sway/config . 
 cd ~/.config/wofi/
