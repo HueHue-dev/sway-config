@@ -15,7 +15,7 @@ ln -s $repoPath/sway/config .
 cd ~/.config/swaylock/
 ln -s $repoPath/swaylock/config .
 
-cd ~/.config/swaybar/
+cd ~/.config/waybar/
 ln -s $repoPath/waybar/config .
 ln -s $repoPath/waybar/style.css
 
