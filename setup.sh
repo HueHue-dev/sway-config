@@ -1,6 +1,6 @@
-sudo apt install alacritty light sway swayidle swaylock waybar wofi fonts-font-awesome
+sudo apt install alacritty light sway swaylock waybar wofi fonts-font-awesome pulseaudio pavucontrol
 
-mkdir -p ~/.config/sway ~/.config/waybar ~/.config/wofi
+mkdir -p ~/.config/alacritty ~/.config/sway ~/.config/swaylock ~/.config/waybar ~/.config/wlogout ~/.config/wofi 
 
 cd ~/.config/sway/
 ln -s ./sway/config . 
