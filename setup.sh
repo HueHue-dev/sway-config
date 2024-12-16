@@ -2,6 +2,7 @@ repoPath="$1"
 
 if [ ! -d "$repoPath" ]; then
   echo "$repoPath does exist."
+  exit 1;
 fi
 
 
@@ -20,13 +21,13 @@ ln -s $repoPath/waybar/config .
 ln -s $repoPath/waybar/style.css
 
 cd ~/.config/wlogout/
-ln -s $repoPath/wlogout/layout
-ln -s $repoPath/wlogout/style.css
+ln -s $repoPath/wlogout/layout .
+ln -s $repoPath/wlogout/style.css .
 
 cd ~/.config/wofi/
 ln -s $repoPath/wofi/config .
 ln -s $repoPath/wofi/style.css .
 
 cd ~/.config/alacritty/
-ls -s $repoPath/alacritty/alacritty.yml .
+ln -s $repoPath/alacritty/alacritty.yml .
  
