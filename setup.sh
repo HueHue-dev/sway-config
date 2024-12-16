@@ -1,6 +1,6 @@
 repoPath="$1"
 
-if [ -d "$repoPath" ]; then
+if [ ! -d "$repoPath" ]; then
   echo "$repoPath does exist."
 fi
 
