@@ -251,8 +251,6 @@ bindsym $mod+d exec $menu
 
 # Autostart
 
-exec swaymsg "assign workspace $ws5"
-
 #======#
 # Misc #
 #======#
