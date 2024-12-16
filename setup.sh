@@ -6,7 +6,7 @@ if [ ! -d "$repoPath" ]; then
 fi
 
 
-sudo apt install alacritty light sway swaylock waybar wofi fonts-font-awesome pulseaudio pavucontrol
+sudo apt install alacritty light sway swaylock waybar wofi fonts-font-awesome pulseaudio pavucontrol xdg-desktop-portal-wlr
 
 mkdir -p ~/.config/alacritty ~/.config/sway ~/.config/swaylock ~/.config/waybar ~/.config/wlogout ~/.config/wofi 
 
@@ -30,3 +30,12 @@ ln -s $repoPath/.config/wofi/style.css .
 
 cd ~/.config/alacritty/
 ln -s $repoPath/.config/alacritty/alacritty.yml .
+
+cd /etc/sway/config.d/
+sudo ln -s $repoPath/etc/sway/config.d/50-systemd-user.conf .
+
+if [ ! -d "/usr/share/xdg-desktop-portal/" ]; then
+  exit 1
+fi
+
+ln -s $repoPath/usr/share/xdg-desktop-portal/sway-portals.conf .
