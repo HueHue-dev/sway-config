@@ -133,8 +133,8 @@ set $ws1 "1 - IDE"
 set $ws2 "2 - IDE" 
 set $ws3 "3 - Terminal"
 set $ws4 "4 - Terminal"
-set $ws5 "5 - Browser"
-set $ws6 "6"
+set $ws5 "5"
+set $ws6 "6 - Browser"
 set $ws7 "7"
 set $ws8 "8 - Keepass"
 set $ws9 "9 - Thunderbird"
@@ -143,7 +143,7 @@ workspace $ws1 output $out-center
 workspace $ws2 output $out-center
 workspace $ws3 output $out-center
 workspace $ws4 output $out-center
-workspace $ws5 output $out-left
+workspace $ws5 output $out-center
 workspace $ws6 output $out-left
 workspace $ws7 output $out-left
 workspace $ws8 output $out-right
