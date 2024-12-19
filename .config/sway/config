@@ -249,6 +249,10 @@ bindsym $mod+space exec $menu
 # Open the application launcher (alternate version):
 bindsym $mod+d exec $menu
 
+# Flameshot
+for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
+bindsym $mod+Shift+s exec flameshot gui
+
 # Autostart
 
 #======#
