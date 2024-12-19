@@ -24,7 +24,7 @@ ln -s $repoPath/.config/waybar/config .
 ln -s $repoPath/.config/waybar/style.css .
 
 cd ~/.config/wlogout/
-rm config style.css
+rm layout style.css
 ln -s $repoPath/.config/wlogout/layout .
 ln -s $repoPath/.config/wlogout/style.css .
 
@@ -41,9 +41,8 @@ cd /etc/sway/config.d/
 sudo rm 50-systemd-user.conf
 sudo ln -s $repoPath/etc/sway/config.d/50-systemd-user.conf .
 
-if [ ! -d "/usr/share/xdg-desktop-portal/" ]; then
-  exit 1
+if [ ! -d "~/.config/xdg-desktop-portal/" ]; then
+  mkdir -p ~/.config/xdg-desktop-portal/
 fi
-cd /usr/share/xdg-desktop-portal/
-rm sway-portals.conf
-sudo ln -s $repoPath/usr/share/xdg-desktop-portal/sway-portals.conf .
+cd ~/.config/xdg-desktop-portal/
+ln -s $repoPath/.config/xdg-desktop-portal/sway-portals.conf .
