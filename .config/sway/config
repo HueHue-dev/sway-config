@@ -48,6 +48,9 @@ output DP-6 pos 0 0 res 1920x1080
 output DP-5 pos 1920 0 res 1920x1080
 output eDP-1 pos 3840 0 res 1920x1080
 
+# Notification Daemon
+exec swaync
+
 input * {
     xkb_layout "de"
     xkb_numlock enabled
@@ -252,6 +255,9 @@ bindsym $mod+d exec $menu
 # Flameshot
 for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
 bindsym $mod+Shift+s exec flameshot gui
+
+# Toggle control center
+bindsym $mod+Shift+n exec swaync-client -t -sw
 
 # Autostart
 

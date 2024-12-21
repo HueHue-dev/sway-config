@@ -8,7 +8,7 @@ fi
 
 sudo apt install alacritty light sway swaylock waybar wofi fonts-font-awesome pulseaudio pavucontrol xdg-desktop-portal-wlr flameshot
 
-mkdir -p ~/.config/alacritty ~/.config/sway ~/.config/swaylock ~/.config/waybar ~/.config/wlogout ~/.config/wofi 
+mkdir -p ~/.config/alacritty ~/.config/sway ~/.config/swaylock ~/.config/waybar ~/.config/wlogout ~/.config/wofi ~/.config/xdg-desktop-portal/ ~/.config/swaync/
 
 cd ~/.config/sway/
 rm config
@@ -41,8 +41,9 @@ cd /etc/sway/config.d/
 sudo rm 50-systemd-user.conf
 sudo ln -s $repoPath/etc/sway/config.d/50-systemd-user.conf .
 
-if [ ! -d "~/.config/xdg-desktop-portal/" ]; then
-  mkdir -p ~/.config/xdg-desktop-portal/
-fi
 cd ~/.config/xdg-desktop-portal/
 ln -s $repoPath/.config/xdg-desktop-portal/sway-portals.conf .
+
+cd ~/.config/swaync/
+ln -s $repoPath/.config/swaync/config.json .
+ln -s $repoPath/.config/swaync/style.css .
