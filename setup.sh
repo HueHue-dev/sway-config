@@ -58,5 +58,8 @@ rm style.css
 ln -s $repoPath/.config/swaync/config.json .
 ln -s $repoPath/.config/swaync/style.css .
 
+echo "Reloading sway..."
+swaymsg reload
+
 echo -e "${green}Setup finished${nc}"
 exit 0
