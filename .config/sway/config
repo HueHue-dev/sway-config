@@ -259,6 +259,9 @@ bindsym $mod+Shift+s exec flameshot gui
 # Toggle control center
 bindsym $mod+Shift+n exec swaync-client -t -sw
 
+
+for_window [app_id="org.gnome.Calculator"] floating enable, move absolute position centered
+
 # Autostart
 
 #======#
