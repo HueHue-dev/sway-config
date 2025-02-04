@@ -8,7 +8,7 @@ fi
 
 sudo apt install alacritty light sway swaylock waybar wofi fonts-font-awesome pulseaudio pavucontrol xdg-desktop-portal-wlr flameshot sway-notification-center
 
-mkdir -p ~/.config/alacritty ~/.config/sway ~/.config/swaylock ~/.config/waybar ~/.config/wlogout ~/.config/wofi ~/.config/xdg-desktop-portal/ ~/.config/swaync/
+mkdir -p ~/.config/alacritty ~/.config/sway ~/.config/swaylock ~/.config/waybar ~/.config/wlogout ~/.config/wofi ~/.config/xdg-desktop-portal ~/.config/swaync/
 
 cd ~/.config/sway/
 rm config
