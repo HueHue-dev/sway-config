@@ -55,8 +55,8 @@ ln -s $repoPath/config/xdg-desktop-portal/sway-portals.conf .
 cd ~/.config/swaync/
 rm config.json
 rm style.css
-ln -s $repoPath/.config/swaync/config.json .
-ln -s $repoPath/.config/swaync/style.css .
+ln -s $repoPath/config/swaync/config.json .
+ln -s $repoPath/config/swaync/style.css .
 
 echo "Reloading sway..."
 swaymsg reload
