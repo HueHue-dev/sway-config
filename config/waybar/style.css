@@ -72,12 +72,11 @@ button:hover {
 #network,
 #pulseaudio,
 #wireplumber,
-#custom-media,
 #tray,
 #mode,
 #idle_inhibitor,
 #scratchpad,
-#mpd {
+#notification {
     padding: 0 10px;
     color: #ffffff;
 }
